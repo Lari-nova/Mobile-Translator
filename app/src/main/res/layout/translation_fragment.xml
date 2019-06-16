@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ProgressBar
+        android:orientation="horizontal"
+        android:id="@+id/progress_bar"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:foregroundGravity="center"
+        android:indeterminate="false"
+        android:progressTint="#009688"
+        app:layout_constraintBottom_toBottomOf="@+id/languageRecyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/languageRecyclerView"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/languageRecyclerView"
+        app:layout_constraintTop_toTopOf="@+id/languageRecyclerView"
+        app:layout_constraintVertical_bias="0.505"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/languageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="664dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="67dp" />
+
+</android.support.constraint.ConstraintLayout>

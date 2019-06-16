@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Translator</string>
+    <string name="prompt">Нажмите, чтобы ввести текст</string>
+</resources>
