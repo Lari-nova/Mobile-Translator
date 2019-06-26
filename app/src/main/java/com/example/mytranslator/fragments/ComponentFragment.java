@@ -33,7 +33,7 @@ public class ComponentFragment extends Fragment implements ViewComponentInterfac
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.component_fragment, container, false);
+        view = inflater.inflate(R.layout.main_fragment, container, false);
         presenter = new ComponentPresenter(new NetworkManager(Constants.BASE_URL));
         presenter.addComponentInterface(this);
         initializeComponent();

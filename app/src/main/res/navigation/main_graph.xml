@@ -9,7 +9,7 @@
         android:id="@+id/componentFragment"
         android:name="com.example.mytranslator.fragments.ComponentFragment"
         android:label="component_fragment"
-        tools:layout="@layout/component_fragment" />
+        tools:layout="@layout/main_fragment" />
     <fragment
         android:id="@+id/languagesFragment"
         android:name="com.example.mytranslator.fragments.LanguagesFragment"

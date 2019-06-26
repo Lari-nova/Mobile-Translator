@@ -27,6 +27,7 @@ public class NetworkManager implements InterfaceNetworkManager {
 
     @Override
     public Observable<Translation> subscribeTranslation(String apiKey, final String text, final String lang, final String format, final int options) {
+        //TODO возвращает нуль
         return Observable.create(e -> e.onNext(translation(apiKey, text, lang, format, options)));
     }
 
