@@ -8,7 +8,7 @@
     android:layout_height="60dp"
     android:orientation="horizontal">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
@@ -32,6 +32,6 @@
             tools:ignore="RtlCompat" />
 
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

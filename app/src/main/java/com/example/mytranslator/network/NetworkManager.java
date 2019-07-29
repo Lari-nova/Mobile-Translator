@@ -2,11 +2,8 @@ package com.example.mytranslator.network;
 
 import com.example.mytranslator.entity.Languages;
 import com.example.mytranslator.entity.Translation;
-
 import java.io.IOException;
-
 import io.reactivex.Observable;
-
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;

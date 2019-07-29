@@ -1,29 +1,33 @@
 package com.example.mytranslator.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+
 import com.example.mytranslator.R;
 import com.example.mytranslator.network.NetworkManager;
 import com.example.mytranslator.resource.Constants;
 import com.example.mytranslator.ui.Component;
 import com.example.mytranslator.ui.ComponentPresenter;
 import com.example.mytranslator.ui.ViewComponentInterface;
+import com.google.android.material.button.MaterialButton;
 
 public class ComponentFragment extends Fragment implements ViewComponentInterface {
 
     private Component presenter;
     private View view;
-    private Button originalButton;
-    private Button translationButton;
-    private Button translator;
+    private MaterialButton originalButton;
+    private MaterialButton translationButton;
+    private MaterialButton translator;
+    private MaterialButton yandexButton;
     private EditText originalText;
     private TextView translationText;
 
@@ -50,6 +54,11 @@ public class ComponentFragment extends Fragment implements ViewComponentInterfac
     private void createListeners() {
         originalButton.setOnClickListener(view -> replaceFragment(LanguagesFragment.ORIGINAL_VALUE));
         translationButton.setOnClickListener(view -> replaceFragment(LanguagesFragment.TRANSLATION_VALUE));
+        yandexButton.setOnClickListener(v -> {
+            Intent browserIntent = new
+                    Intent(Intent.ACTION_VIEW, Uri.parse("http://translate.yandex.ru"));
+            startActivity(browserIntent);
+        });
 
         translator.setOnClickListener(view -> {
             presenter.translateText(originalText.getText().toString());
@@ -62,6 +71,7 @@ public class ComponentFragment extends Fragment implements ViewComponentInterfac
         translator = view.findViewById(R.id.translator);
         originalText = view.findViewById(R.id.original_text);
         translationText = view.findViewById(R.id.translation_text);
+        yandexButton = view.findViewById(R.id.yandex);
     }
 
     private void replaceFragment(String targetIntention) {

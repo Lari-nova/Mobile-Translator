@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.45"
         tools:ignore="MissingConstraints" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/languageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="664dp"
@@ -32,4 +32,4 @@
         tools:layout_editor_absoluteX="-3dp"
         tools:layout_editor_absoluteY="67dp" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
