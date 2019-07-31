@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.mytranslator.ConnectivityHelper;
 import com.example.mytranslator.R;
 import com.example.mytranslator.network.NetworkManager;
 import com.example.mytranslator.resource.Constants;
@@ -30,6 +33,8 @@ public class ComponentFragment extends Fragment implements ViewComponentInterfac
     private MaterialButton yandexButton;
     private EditText originalText;
     private TextView translationText;
+    private ConnectivityHelper helper;
+
 
     public ComponentFragment() {
     }
@@ -38,6 +43,7 @@ public class ComponentFragment extends Fragment implements ViewComponentInterfac
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.main_fragment, container, false);
+        checkConnection();
         presenter = new ComponentPresenter(new NetworkManager(Constants.BASE_URL));
         presenter.addComponentInterface(this);
         initializeComponent();
@@ -79,6 +85,16 @@ public class ComponentFragment extends Fragment implements ViewComponentInterfac
         Bundle bundle = new Bundle();
         bundle.putString(LanguagesFragment.BUNDLE_KEY, targetIntention);
         navController.navigate(R.id.languagesFragment, bundle);
+    }
+
+    private void checkConnection() {
+        helper = new ConnectivityHelper();
+        if (helper.isConnectedToNetwork(getContext())) {
+            Toast.makeText(getContext(), "Internet Connected", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

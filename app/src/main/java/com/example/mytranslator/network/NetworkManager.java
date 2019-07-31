@@ -3,6 +3,8 @@ package com.example.mytranslator.network;
 import com.example.mytranslator.entity.Languages;
 import com.example.mytranslator.entity.Translation;
 import java.io.IOException;
+import java.util.function.ToDoubleBiFunction;
+
 import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -24,7 +26,7 @@ public class NetworkManager implements InterfaceNetworkManager {
 
     @Override
     public Observable<Translation> subscribeTranslation(String apiKey, final String text, final String lang, final String format, final int options) {
-        //TODO возвращает нуль
+        //TODO все также падает
         return Observable.create(e -> e.onNext(translation(apiKey, text, lang, format, options)));
     }
 

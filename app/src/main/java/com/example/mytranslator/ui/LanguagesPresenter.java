@@ -40,10 +40,8 @@ public class LanguagesPresenter implements Languages {
 
     @Override
     public void addSelectLanguage(String language) {
-        //TODO замена
 
         if (languageInterface.getFragmentArguments() != null) {
-
             String bundleKey = languageInterface.getFragmentArguments().getString(LanguagesFragment.BUNDLE_KEY);
             if (bundleKey.equals(LanguagesFragment.ORIGINAL_VALUE)) {
                 stateManager.addOriginalKey(selectKey(language));
