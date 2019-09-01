@@ -3,8 +3,6 @@ package com.example.mytranslator.network;
 import com.example.mytranslator.entity.Languages;
 import com.example.mytranslator.entity.Translation;
 import java.io.IOException;
-import java.util.function.ToDoubleBiFunction;
-
 import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.Response;

@@ -39,12 +39,14 @@ public class ComponentPresenter implements Component {
 
     @Override
     public void translateText(String text) {
-        networkManager.subscribeTranslation(Constants.API_KEY, text, originalKey + "-" + translationKey, "plain", 1)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((Translation translation) -> {
-                    componentInterface.showTranslation(translation.getText().get(0));
-                }).isDisposed();
+        if (!text.equals("")) {
+            networkManager.subscribeTranslation(Constants.API_KEY, text, originalKey + "-" + translationKey, "plain", 1)
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe((Translation translation) -> {
+                        componentInterface.showTranslation(translation.getText().get(0));
+                    }).isDisposed();
+        }
     }
 
     private void initializeState() {

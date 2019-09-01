@@ -59,8 +59,13 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="0"
             android:background="@drawable/background_with_shadow"
+            android:gravity="fill_horizontal"
             android:hint="@string/prompt"
-            android:inputType="text" />
+            android:paddingLeft="8dp"
+            android:paddingTop="5dp"
+            android:inputType="textMultiLine"
+            android:maxLines="100"
+            android:scrollbars="vertical" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/translator"
@@ -81,7 +86,13 @@
             android:layout_marginRight="5dp"
             android:layout_weight="0"
             android:background="@drawable/background_with_shadow"
-            android:gravity="start" />
+            android:gravity="start"
+            android:maxLines="100"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:scrollbars="vertical"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/yandex"
