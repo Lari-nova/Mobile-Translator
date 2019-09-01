@@ -1,10 +1,16 @@
 package com.example.mytranslator.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -26,6 +32,7 @@ public class LanguagesFragment extends Fragment implements ViewLanguageInterface
     private LangsAdapter adapter;
     private View view;
     private ProgressBar progressBar;
+    private EditText editText;
     private Languages presenter = new LanguagesPresenter();
     private static final int SELECT_KEY = 0;
     private static final int SELECT_VALUE = 1;
@@ -35,14 +42,39 @@ public class LanguagesFragment extends Fragment implements ViewLanguageInterface
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.translation_fragment, container, false);
+        findComponent();
         progressBar = view.findViewById(R.id.progress_bar);
         createRecyclerView();
         presenter.addLanguageInterface(this);
         presenter.loadLang();
+        searchLanguage();
         return view;
+    }
+
+    private void findComponent() {
+        editText = view.findViewById(R.id.userInput);
+    }
+
+    private void searchLanguage() {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                presenter.userSearch(editText.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void createRecyclerView() {
@@ -62,7 +94,6 @@ public class LanguagesFragment extends Fragment implements ViewLanguageInterface
     public void replaceFragment() {
         NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
         navController.popBackStack();
-
     }
 
     @Override
