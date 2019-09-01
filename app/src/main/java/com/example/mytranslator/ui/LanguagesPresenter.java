@@ -23,6 +23,7 @@ public class LanguagesPresenter implements Languages {
     private InterfaceNetworkManager manager;
     private HashMap<String, String> keyLanguageMap;
     private StateManager stateManager;
+    private String fake;
     public LanguagesPresenter() {
         manager = new NetworkManager(Constants.BASE_URL);
         stateManager = ApplicationStateManager.create();
