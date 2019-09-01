@@ -23,7 +23,7 @@ public class LanguagesPresenter implements Languages {
     private InterfaceNetworkManager manager;
     private HashMap<String, String> keyLanguageMap;
     private StateManager stateManager;
-    private String fake;
+    private ArrayList<String> allLenguage = new ArrayList<>();
     public LanguagesPresenter() {
         manager = new NetworkManager(Constants.BASE_URL);
         stateManager = ApplicationStateManager.create();
@@ -55,6 +55,16 @@ public class LanguagesPresenter implements Languages {
         languageInterface.replaceFragment();
     }
 
+    @Override
+    public void userSearch(String word) {
+        ArrayList<String> listClone = new ArrayList<>();
+        for (String string : allLenguage) {
+            if(string.matches("(?i)("+ word + ").*")){
+                listClone.add(string);
+            }
+        }
+        languageInterface.showLangs(listClone);
+    }
 
     private String selectKey(String language) {
         Collection<String> collection = keyLanguageMap.keySet();
@@ -74,6 +84,7 @@ public class LanguagesPresenter implements Languages {
                     keyLanguageMap = e.getLangs();
                     ArrayList<String> result = new ArrayList<>(keyLanguageMap.values());
                     Collections.sort(result, String::compareTo);
+                    allLenguage = result;
                     languageInterface.showLangs(result);
 
                 }).isDisposed();

@@ -4,4 +4,5 @@ public interface Languages {
     void addLanguageInterface(ViewLanguageInterface languageInterface);
     void loadLang();
     void addSelectLanguage(String language);
+    void userSearch(String word);
 }
